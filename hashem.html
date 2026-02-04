@@ -1,39 +1,54 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" manifest="offline.manifest">
+<html>
 <head>
     <meta charset="UTF-8">
-        <title>PS4 13.04 PRIVATE ELITE HOST</title>
-            <style>
-                    /* تصميم مستوحى من واجهة البلايستيشن الأصلية بنكهة الهاكرز */
-                            :root {
-                                        --ps-blue: #003791;
-                                                    --neon: #00f2ff;
-                                                                --danger: #ff4b4b;
-                                                                        }
-                                                                                body {
-                                                                                            background: radial-gradient(circle, #001a33 0%, #000 100%);
-                                                                                                        color: white;
-                                                                                                                    font-family: 'Segoe UI', Tahoma, sans-serif;
-                                                                                                                                margin: 0;
-                                                                                                                                            display: flex;
-                                                                                                                                                        flex-direction: column;
-                                                                                                                                                                    align-items: center;
-                                                                                                                                                                                justify-content: center;
-                                                                                                                                                                                            height: 100vh;
-                                                                                                                                                                                                        overflow: hidden;
-                                                                                                                                                                                                                }
-                                                                                                                                                                                                                        #access-denied { display: none; text-align: center; }
-                                                                                                                                                                                                                                #main-ui { display: none; width: 85%; max-width: 900px; text-align: center; }
-                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                .box {
-                                                                                                                                                                                                                                                            border: 2px solid var(--ps-blue);
-                                                                                                                                                                                                                                                                        background: rgba(0, 0, 0, 0.8);
-                                                                                                                                                                                                                                                                                    padding: 40px;
-                                                                                                                                                                                                                                                                                                border-radius: 25px;
-                                                                                                                                                                                                                                                                                                            box-shadow: 0 0 40px rgba(0, 242, 255, 0.2);
-                                                                                                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                                                                                                            .status-bar {
-                                                                                                                                                                                                                                                                                                                                        background: #111;
+    <title>PS4 13.04 HOST</title>
+    <style>
+        /* كود CSS بسيط جداً لتقليل استهلاك الرام في السوني */
+        body { background-color: #000; color: #00f2ff; text-align: center; font-family: sans-serif; }
+        .main { border: 1px solid #003791; width: 90%; margin: 20px auto; padding: 15px; }
+        button { 
+            background: #111; color: #fff; border: 1px solid #00f2ff; 
+            padding: 12px; width: 100%; margin: 8px 0; font-size: 18px; 
+        }
+        button:focus { background: #00f2ff; color: #000; } /* للتنقل بيد السوني */
+        #log { color: #ffd700; font-family: monospace; padding: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <h1 style="font-size: 22px;">HASHEM HOST PS4</h1>
+        <div id="log">انتظار الأمر...</div>
+
+        <button onclick="run('GoldHEN', 'goldhen_2.4.js')">تفعيل GoldHEN</button>
+        <button onclick="run('Blocker', 'blocker.js')">إغلاق التحديثات</button>
+        <button onclick="run('FTP', 'ftp.js')">فتح الـ FTP</button>
+        <button onclick="location.reload()">تحديث الصفحة</button>
+
+        <p style="font-size: 10px; color: #444;">V13.04 LITE ENGINE</p>
+    </div>
+
+    <script>
+        function run(name, file) {
+            var log = document.getElementById('log');
+            log.innerText = "جاري حقن " + name + "...";
+            
+            // حقن مباشر بدون عمليات معقدة
+            var s = document.createElement('script');
+            s.src = file;
+            document.head.appendChild(s);
+
+            s.onload = function() {
+                log.innerText = "تم تفعيل " + name + " ✅";
+            };
+            s.onerror = function() {
+                log.innerText = "خطأ: الملف غير موجود!";
+            };
+        }
+    </script>
+</body>
+</html>
                                                                                                                                                                                                                                                                                                                                                     border-right: 5px solid var(--neon);
                                                                                                                                                                                                                                                                                                                                                                 padding: 15px;
                                                                                                                                                                                                                                                                                                                                                                             margin: 20px 0;

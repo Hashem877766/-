@@ -1,68 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>PS4 13.04 HOST</title>
-    <style>
-        /* كود CSS بسيط جداً لتقليل استهلاك الرام في السوني */
-        body { background-color: #000; color: #00f2ff; text-align: center; font-family: sans-serif; }
-        .main { border: 1px solid #003791; width: 90%; margin: 20px auto; padding: 15px; }
-        button { 
-            background: #111; color: #fff; border: 1px solid #00f2ff; 
-            padding: 12px; width: 100%; margin: 8px 0; font-size: 18px; 
-        }
-        button:focus { background: #00f2ff; color: #000; } /* للتنقل بيد السوني */
-        #log { color: #ffd700; font-family: monospace; padding: 10px; }
-    </style>
+<meta charset="utf-8">
+<title>HASHEM 13.04</title>
+<style>
+    body { background-color: #000; color: white; text-align: center; font-family: sans-serif; }
+    .btn { background: #1a1a1a; color: #00f2ff; border: 2px solid #00f2ff; padding: 15px; width: 280px; margin: 10px; font-size: 20px; border-radius: 10px; }
+    .btn:focus { background: #00f2ff; color: black; }
+    #status { color: #ffd700; font-size: 1.2rem; margin: 20px; }
+</style>
 </head>
 <body>
 
-    <div class="main">
-        <h1 style="font-size: 22px;">HASHEM HOST PS4</h1>
-        <div id="log">انتظار الأمر...</div>
+    <h1>HASHEM HOST LITE</h1>
+    <div id="status">جاهز للحقن..</div>
 
-        <button onclick="run('GoldHEN', 'goldhen_2.4.js')">تفعيل GoldHEN</button>
-        <button onclick="run('Blocker', 'blocker.js')">إغلاق التحديثات</button>
-        <button onclick="run('FTP', 'ftp.js')">فتح الـ FTP</button>
-        <button onclick="location.reload()">تحديث الصفحة</button>
-
-        <p style="font-size: 10px; color: #444;">V13.04 LITE ENGINE</p>
-    </div>
+    <button class="btn" onclick="inject('GoldHEN', 'https://kar0218.github.io/payloads/goldhen_2.4b16.js')">تفعيل GoldHEN</button>
+    <br>
+    <button class="btn" onclick="location.reload()">تحديث (Cache)</button>
 
     <script>
-        function run(name, file) {
-            var log = document.getElementById('log');
-            log.innerText = "جاري حقن " + name + "...";
+        function inject(name, url) {
+            var s = document.getElementById('status');
+            s.innerText = "جاري تحميل " + name + "...";
             
-            // حقن مباشر بدون عمليات معقدة
-            var s = document.createElement('script');
-            s.src = file;
-            document.head.appendChild(s);
-
-            s.onload = function() {
-                log.innerText = "تم تفعيل " + name + " ✅";
-            };
-            s.onerror = function() {
-                log.innerText = "خطأ: الملف غير موجود!";
-            };
+            var sc = document.createElement('script');
+            sc.src = url;
+            document.head.appendChild(sc);
+            
+            sc.onload = function() { s.innerText = "تم التفعيل بنجاح! ✅"; };
+            sc.onerror = function() { s.innerText = "خطأ في الاتصال! ❌"; };
         }
     </script>
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                    border-right: 5px solid var(--neon);
-                                                                                                                                                                                                                                                                                                                                                                padding: 15px;
-                                                                                                                                                                                                                                                                                                                                                                            margin: 20px 0;
-                                                                                                                                                                                                                                                                                                                                                                                        font-family: 'Courier New', monospace;
-                                                                                                                                                                                                                                                                                                                                                                                                    color: #ffd700;
-                                                                                                                                                                                                                                                                                                                                                                                                                font-size: 1.1rem;
-                                                                                                                                                                                                                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                                                                                                                                                                                                                                .btn-grid {
-                                                                                                                                                                                                                                                                                                                                                                                                                                            display: grid;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        grid-template-columns: 1fr 1fr;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                    gap: 15px;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                margin-top: 25px;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .btn {
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             background: transparent;
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         border: 2px solid var(--ps-blue);
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     color: white;
